@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Search for a book</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            body{
+                margin-left: 100px;
+                margin-right: 700px;
+                margin-top:100px;
+                background-image: url("https://images.squarespace-cdn.com/content/v1/56bf8adad51cd4587e5f14b2/1514572181808-ERMYYQNWJQXHHRC2NO1H/ke17ZwdGBToddI8pDm48kDdjP6q7PNCkw4Qep81kHxl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1Ue4MnKmAUS0E6M-InQ5AtKmQukWwcizG_Vlz3TWZ47gx1trlVMuTSyYUsJBPcSHLtA/best-books-book-youll-ever-read.jpg");
+                background-size: cover;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="card" style ="width:30rem;background-color:rgba(255,255,255,0.5);">
+        <center>
+        <br><br>
+        <form action="{{url_for('logout')}}" method="POST">
+            <button>Log out</button>
+        </form>
+        <h2 style="color:lightsalmon;">Hello, {{ name }}!</h2>
+        
+       
+        <b>You can make a search for any book based on its isbn,name, author or publishing year.</b>
+        <br><br>
+        <form action="{{url_for('search')}}" method="post">
+            <div class="form-group">
+                <select name="by" class="form-control">
+                    <option value="byisbn">ISBN number.</option>
+                    <option value="bybookname">Book name</option>
+                    <option value="byauthor">Author</option>
+                    <option value="byyear">Year of publish</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="text" name="keyword" class="form-control" placeholder="Enter keyword">
+            </div>
+            
+            <button>Search</button>
+	    </form><br><br>
+        </center>
+        </div>
+    </body>
+</html>
+
