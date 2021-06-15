@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Registration</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            body{
+                background-image: url("https://static01.nyt.com/images/2019/12/17/books/review/17fatbooks/17fatbooks-videoSixteenByNineJumbo1600.jpg");
+            }
+        </style>  
+    </head>
+    <body>
+        <br><br><br><br><br><br>
+        <center>
+        
+        <div class="card" style ="width:30rem;background-color:rgba(255,255,255,0.5);">
+        <form action="{{url_for('Check')}}" method="post"> 
+            <h2>Register for new account</h2><br>
+            <input type="text" name="name" placeholder="Enter your name"><br><br>
+            <input type="password" name="rawpw1" placeholder="Create password"><br><br>
+            <input type="password" name="rawpw2" placeholder="Confirm password"><br><br>
+            <button>Register</button><br><br>
+        </form>
+        </div>
+        </center>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Detail Page</title>
+    </head>
+    <style>
+        body{
+            margin-left: 450px;
+            margin-right: 450px;
+            background-image: url("https://c1.wallpaperflare.com/preview/281/150/428/various-book-books.jpg");
+            background-size: cover;
+        }
+    </style>
+    <body>
+        <center>
+        <div class="card" style ="width:30rem;background-color:rgba(255,255,255,0.9);">
+        <br>
+        <form action="{{url_for('account_')}}" method="POST">
+            <button>Go back to search page</button><br><br>
+        </form>
+        <form action="{{url_for('logout')}}" method="POST"> 
+            <button>Log out</button>
+        </form>
+        </div>
+        </center>
+        <div class="card" style ="width:30rem;background-color:rgba(255,255,255,0.9);">
+        <div class="jumbotron">
+            <center><br>
+            <h1 class="display-4">{{book.bookname}}</h1>
+            </center>
+            <p class="lead">
+                <ul>
+                    <li><b>ISBN number</b>            : {{book.isbn}}</li>
+                    <li><b>Author</b>                 : {{book.author}}</li>
+                    <li><b>Published</b>              : {{book.year}}</li>
+                    <li><b>GoodReads review count</b> : {{reviewcount}}</li>
+                    <li><b>GoodReads ratings count</b>: {{ratecount}}</li>
+                    <li><b>GoodReads rating</b>       : {{rate}} out of 5.00</li>
+                </ul>
+            </p>
+
+            <hr class="my-4">
+            <center>
+            <p>Write your own review, and rate the book here!</p>
+            <form action="{{url_for('write', isbn=book.isbn)}}" method="POST">
+                <button>Write review</button>
+            </form>
+            
+            </center><br>
+        </div>
+        </div>
+        <br><br>
+        
+        <div class="card" style="width:26rem;background-color:rgba(255,255,255,0.9);padding:30px;" >
+        <center>
+        <h2>REVIEWS:</h2>
+        </center>
+        {% for review in reviews %}
+            <p>
+                <b>{{review.name}} :</b> {{review.review}}<br>
+                <b>Rating: {{review.rate}} out of 5</b>
+            </p>
+        {% endfor %}
+        <br>
+        Values:
+        <br><br><center>
+            <form action="{{url_for('api', isbn = book.isbn)}}">
+                <button>Make an API request</button>
+            </form>
+            </center>
+        </div>
+         
+        
+    </body>
+</html>

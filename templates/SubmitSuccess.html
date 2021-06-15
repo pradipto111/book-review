@@ -1,0 +1,15 @@
+{% extends "Message.html" %}
+
+{% block title %}Success{% endblock %}
+
+{% block message %} 
+    <div class="alert alert-success" role="alert">
+    <b>{{message}}</b>
+    </div> 
+{% endblock %}
+
+{% block body %}
+<form action="{{url_for('account_')}}" method="POST">
+    <button>Go back to search page</button>
+</form>
+{% endblock %}

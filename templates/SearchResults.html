@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Search results</title>
+        <style>
+            body {
+                margin-left: 300px;
+                margin-right: 300px;
+                background-image: url("https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&w=1000&q=80");
+                background-size: cover;
+            }
+            th {
+                background-color: aquamarine;
+            }
+            table{
+                border: 2px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card" style ="width:50rem;background-color:rgba(255,255,255,0.5);"><center>
+        <h1>Search Results</h1>
+        <form action="{{url_for('account_')}}" method="POST">
+            <button>Go back to search page</button><br><br>
+        </form>
+        <form action="{{url_for('logout')}}" method="POST">
+            <button>Log out</button><br><br>
+        </form>
+        <table>
+            <tr>
+                <th>ISBN</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Year of publish</th>
+                <th></th>
+            </tr>
+            {% for result in results %}
+                <tr>
+                    <td>{{result.isbn}}</td>
+                    <td>{{result.bookname}}</td>
+                    <td>{{result.author}}</td>
+                    <td>{{result.year}}</td>
+                    <td>
+                        <form action="{{url_for('detail', isbn=result.isbn)}}" method="POST">
+                            <button>Show details</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        </center></div>
+    </body>
+    
+</html>

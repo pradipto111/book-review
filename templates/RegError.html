@@ -1,0 +1,15 @@
+{% extends "Message.html" %}
+
+{% block title %}Error{% endblock %}
+
+{% block message %} 
+    <div class="alert alert-danger" role="alert">
+    <b>{{message}}</b>
+    </div> 
+{% endblock %}
+
+{% block body %}
+This maybe due to passwords not matching.<br>
+<a href="{{url_for('register')}}">Try registering again.</a>
+{% endblock %}
+ 

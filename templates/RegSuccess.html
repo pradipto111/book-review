@@ -1,0 +1,17 @@
+{% extends "Message.html" %}
+
+{% block title %}Success{% endblock %}
+
+{% block message %} 
+    <div class="alert alert-success" role="alert">
+    <b>{{message}}</b>
+    </div> 
+{% endblock %}
+
+{% block body %}
+Your Login ID is : 
+{% for user in users %}
+    {{ user.uid }}
+{% endfor %}
+<a href="{{url_for('index')}}">Log into your account</a>
+{% endblock %}
